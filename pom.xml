@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.fedex.test</groupId>
+    <artifactId>MavenSeleniumJUnit4Parallel</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <surefire.version>2.21.0</surefire.version>
+    </properties>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.9.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${surefire.version}</version>
+                <configuration>
+                    <!--<systemPropertyVariables>-->
+                        <!-- Set driver executable locations here if not already set via PATH environment variable -->
+                        <!--<webdriver.chrome.driver>C:/tools/Selenium/chromedriver.exe</webdriver.chrome.driver>-->
+                        <!--<webdriver.edge.driver>C:/tools/Selenium/MicrosoftWebDriver.exe</webdriver.edge.driver>-->
+                        <!--<webdriver.gecko.driver>C:/tools/Selenium/geckodriver.exe</webdriver.gecko.driver>-->
+                        <!--<webdriver.ie.driver>C:/tools/Selenium/IEDriverServer.exe</webdriver.ie.driver>-->
+                        <!-- Set browser to use if not already set via BROWSER environment variable or test config -->
+                        <!--<webdriver.browser>firefox</webdriver.browser>-->
+                        <!-- Set grid hub address to use if not already set via HUB_ADDRESS environment variable -->
+                        <!--<webdriver.hub_address>http://127.0.0.1:4444/wd/hub</webdriver.hub_address>-->
+                    <!--</systemPropertyVariables>-->
+                    <!-- Run tests in parallel: mvn clean verify
+                         Generate report css:   mvn site -DgenerateReports=false
+                     -->
+                    <parallel>all</parallel>
+                    <threadCountSuites>5</threadCountSuites>
+                    <threadCountClasses>5</threadCountClasses>
+                    <threadCountMethods>5</threadCountMethods>
+                    <!-- Make threadCount be total instead of per processor core -->
+                    <perCoreThreadCount>false</perCoreThreadCount>
+                    <!-- Rerun any test that fails up to the specified number of reruns for any one test -->
+                    <rerunFailingTestsCount>2</rerunFailingTestsCount>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>${surefire.version}</version>
+                <configuration>
+                    <outputName>${project.artifactId} Integration Test Report</outputName>
+                    <title>${project.artifactId} Integration Test Report</title>
+                    <reportsDirectory>${project.basedir}/target/failsafe-reports</reportsDirectory>
+                    <linkXRef>false</linkXRef>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>failsafe-report-only</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
