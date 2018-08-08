@@ -11,7 +11,7 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <surefire.version>2.21.0</surefire.version>
+        <surefire.version>2.22.0</surefire.version>
     </properties>
 
     <dependencies>
@@ -26,7 +26,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.9.1</version>
+            <version>3.14.0</version>
         </dependency>
     </dependencies>
 
@@ -48,7 +48,18 @@
                         <!-- Set grid hub address to use if not already set via HUB_ADDRESS environment variable -->
                         <!--<webdriver.hub_address>http://127.0.0.1:4444/wd/hub</webdriver.hub_address>-->
                     <!--</systemPropertyVariables>-->
-                    <!-- Run tests in parallel: mvn clean verify
+                    <!--
+                         Run all tests (in parallel): mvn clean verify
+
+                         Run tests by category (in parallel): mvn clean verify -Dgroups=<full package name of Category>
+                           Ex. mvn clean verify -Dgroups=com.stgconsulting.tests.categories.Flaky
+                           Use multiple groups by putting all categories inside quotes and separating by commas
+
+                         Run tests excluding category (in parallel):
+                           mvn clean verify -DexcludedGroups=<full package name of Category to exclude>
+                           Ex. mvn clean verify -DexcludedGroups=com.stgconsulting.tests.categories.InstancePageObject
+                           Use multiple groups by putting all categories inside quotes and separating by commas
+
                          Generate report css:   mvn site -DgenerateReports=false
                      -->
                     <parallel>all</parallel>

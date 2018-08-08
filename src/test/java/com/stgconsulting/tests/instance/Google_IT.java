@@ -3,10 +3,13 @@ package com.stgconsulting.tests.instance;
 import com.stgconsulting.pages.instance.google.GHome;
 import com.stgconsulting.pages.instance.google.GSearchResults;
 import com.stgconsulting.tests.GBaseTest;
+import com.stgconsulting.tests.categories.InstancePageObject;
 import com.stgconsulting.utility.Configuration;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
+@Category(InstancePageObject.class)
 public class Google_IT extends GBaseTest {
 
     @Test

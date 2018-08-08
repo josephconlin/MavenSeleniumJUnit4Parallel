@@ -3,10 +3,13 @@ package com.stgconsulting.tests.instance;
 import com.stgconsulting.pages.instance.bing.BHome;
 import com.stgconsulting.pages.instance.bing.BSearchResults;
 import com.stgconsulting.tests.BBaseTest;
+import com.stgconsulting.tests.categories.InstancePageObject;
 import com.stgconsulting.utility.Configuration;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
+@Category(InstancePageObject.class)
 public class Bing_IT extends BBaseTest {
 
     @Test

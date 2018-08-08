@@ -1,6 +1,7 @@
 package com.stgconsulting.tests.instance;
 
 import com.stgconsulting.pages.instance.Pages;
+import com.stgconsulting.tests.categories.InstancePageObject;
 import com.stgconsulting.utility.Browser;
 import com.stgconsulting.utility.Configuration;
 import com.stgconsulting.utility.WebDriverFactory;
@@ -8,10 +9,12 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
+@Category(InstancePageObject.class)
 public class GMultiBrowser_IT {
 
     @Parameterized.Parameters(name = "{index}: {0}")

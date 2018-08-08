@@ -8,7 +8,7 @@ public class WebDriverWaitFactory {
     public static WebDriverWait getDefaultWait() {
         WebDriver driver = WebDriverFactory.getWebDriver();
         return new WebDriverWait(driver, Configuration.ELEMENT_LOAD_TIMEOUT_SECONDS,
-                WebDriverWait.DEFAULT_SLEEP_TIMEOUT);
+                Configuration.DEFAULT_SLEEP_MILLISECONDS);
     }
 
     public static WebDriverWait getImpatientWait() {

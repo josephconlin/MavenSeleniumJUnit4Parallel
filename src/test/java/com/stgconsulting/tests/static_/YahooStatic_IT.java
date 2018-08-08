@@ -3,12 +3,17 @@ package com.stgconsulting.tests.static_;
 import com.stgconsulting.pages.static_.yahoo.YHomeStatic;
 import com.stgconsulting.pages.static_.yahoo.YSearchResultsStatic;
 import com.stgconsulting.tests.YBaseTest;
+import com.stgconsulting.tests.categories.Flaky;
+import com.stgconsulting.tests.categories.StaticPageObject;
 import com.stgconsulting.utility.Configuration;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
+@Category(StaticPageObject.class)
 public class YahooStatic_IT extends YBaseTest {
 
+    @Category(Flaky.class)
     @Test
     public void testTitle() {
         //Insert random failures to test maven failsafe retry of failing tests

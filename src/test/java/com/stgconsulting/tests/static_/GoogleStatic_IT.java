@@ -3,10 +3,13 @@ package com.stgconsulting.tests.static_;
 import com.stgconsulting.pages.static_.google.GHomeStatic;
 import com.stgconsulting.pages.static_.google.GSearchResultsStatic;
 import com.stgconsulting.tests.GBaseTest;
+import com.stgconsulting.tests.categories.StaticPageObject;
 import com.stgconsulting.utility.Configuration;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
+@Category(StaticPageObject.class)
 public class GoogleStatic_IT extends GBaseTest {
 
     @Test

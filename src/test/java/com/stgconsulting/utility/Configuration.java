@@ -14,6 +14,10 @@ public class Configuration {
     private static final String SHORTEST_SLEEP_MILLISECONDS_KEY = "shortestSleepMilliseconds";
     public static final long SHORTEST_SLEEP_MILLISECONDS;
 
+    /* defaultSleepMilliseconds */
+    private static final String DEFAULT_SLEEP_MILLISECONDS_KEY = "defaultSleepMilliseconds";
+    public static final long DEFAULT_SLEEP_MILLISECONDS;
+
     /* pageLoadTimeoutSeconds */
     private static final String PAGE_LOAD_TIMEOUT_SECONDS_KEY = "pageLoadTimeoutSeconds";
     public static final long PAGE_LOAD_TIMEOUT_SECONDS;
@@ -61,6 +65,7 @@ public class Configuration {
 
         //Initialize variables with data from properties file
         SHORTEST_SLEEP_MILLISECONDS = Long.parseLong(PROPERTIES.getProperty(SHORTEST_SLEEP_MILLISECONDS_KEY));
+        DEFAULT_SLEEP_MILLISECONDS = Long.parseLong(PROPERTIES.getProperty(DEFAULT_SLEEP_MILLISECONDS_KEY));
         PAGE_LOAD_TIMEOUT_SECONDS = Long.parseLong(PROPERTIES.getProperty(PAGE_LOAD_TIMEOUT_SECONDS_KEY));
         ELEMENT_LOAD_TIMEOUT_SECONDS = Long.parseLong(PROPERTIES.getProperty(ELEMENT_LOAD_TIMEOUT_SECONDS_KEY));
 

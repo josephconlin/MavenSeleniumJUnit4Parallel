@@ -3,10 +3,13 @@ package com.stgconsulting.tests.static_;
 import com.stgconsulting.pages.static_.bing.BHomeStatic;
 import com.stgconsulting.pages.static_.bing.BSearchResultsStatic;
 import com.stgconsulting.tests.BBaseTest;
+import com.stgconsulting.tests.categories.StaticPageObject;
 import com.stgconsulting.utility.Configuration;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
+@Category(StaticPageObject.class)
 public class BingStatic_IT extends BBaseTest {
 
     @Test
